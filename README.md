@@ -1,6 +1,7 @@
 # ShoppingCart
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.5.
+This is a sample project only and it doesn't need any password for login. Any email which is available from the user's api can be used for login.
 
 ## Development server
 
