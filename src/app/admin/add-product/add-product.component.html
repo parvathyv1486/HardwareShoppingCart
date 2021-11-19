@@ -1,0 +1,45 @@
+<mat-card>
+    <mat-card-title>Add Product</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+            <input type="text" matInput placeholder="Name" formControlName="name">
+            </mat-form-field>
+           <p> <mat-form-field>
+            <input type="text" matInput placeholder="Description" formControlName="description">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Image" formControlName="defaultImage">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Price" formControlName="price">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <input type="text" matInput placeholder="Discount" formControlName="discount">
+            </mat-form-field>
+        </p>
+
+        <p *ngIf="error" class="error">
+            {{ error }}
+        </p>
+
+        <div class="button">
+            <button type="submit" mat-flat-button color="primary">Save</button>
+            <span style="padding-right: 10px;"></span>
+            <button type="button" mat-flat-button color="primary" (click)="onClear()">Clear</button>
+            <span style="padding-right: 10px;"></span>
+            <button type="button" [routerLink]="['/allProducts']" routerLinkActive="router-link-active" mat-flat-button color="primary"> View Products</button>
+        </div>
+        <div>
+            <label style="color: blue;">{{msg}}</label>
+        </div>
+
+        </form>
+    </mat-card-content>
+</mat-card>

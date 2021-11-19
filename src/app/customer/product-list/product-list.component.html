@@ -1,0 +1,47 @@
+<div class="main-div">
+<!-- <mat-card style="width: 100%;border-style: solid;border-width: thick;">
+    Smart Hardware Shop
+</mat-card> -->
+</div>
+
+<!-- <a *ngIf="!isLoggedIn" [routerLink]="['/login']" routerLinkActive="router-link-active" >Login</a>
+<span style="padding-right: 10px;"></span>
+<a *ngIf="isLoggedIn" [routerLink]="['/productList']" routerLinkActive="router-link-active" (click)="onLogout()">Logout</a>
+<span style="padding-right: 10px;"></span> -->
+ <!--
+<form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+        <div>
+            <input type="text" matInput placeholder="Search Product" name="pName" [(ngModel)]="pName">
+            <mat-icon class="matIcon" (click)="onSearch()">search</mat-icon>
+        </div>
+        
+      </mat-form-field>
+</form> -->
+<mat-form-field class="col-lg-3 col-md-4 col-sm-6 col-8">
+    <input matInput type="search" (keyup)="onSearch($event.target)" placeholder="Search">
+</mat-form-field>
+<!--<div style="text-align: right;padding-right: 20px;">
+<a [routerLink]="['/userCart']">
+    <mat-icon  matBadge={{itemCnt}} matBaitemCntdgeColor="warn" class="notification-button__icon">add_shopping_cart</mat-icon>
+</a>
+</div> -->
+
+<mat-grid-list cols="{{cols}}" rowHeight="400px" gutterSize="20px" class="grid-layout">
+    <mat-grid-tile *ngFor="let product of products;">
+        <mat-card>
+            <img id="card-image" mat-card-image src="{{product.defaultImage}}" alt="product photo">
+            <mat-card-content>
+                <mat-card-title matTooltip="{{product.name}}">{{product.name}}</mat-card-title>
+                <mat-card-subtitle>{{product.price}}</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-flat-button color="primary" [routerLink]="['/product']" [queryParams]="{ id: product.id}">
+                    View
+                </button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
+<mat-paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" (page)="pageEvent = getNextPage($event)">
+</mat-paginator>

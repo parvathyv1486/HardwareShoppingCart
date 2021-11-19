@@ -1,0 +1,16 @@
+<app-header></app-header>
+<mat-list>
+    <mat-list-item *ngFor="let item of cartItems" style="width: 800px; border-style: solid; border-width: thin;padding-bottom: 30px;padding-top: 30px;">
+      <span> {{item.name}} </span>
+      <span style="padding-right: 60px; word-wrap: break-word;"></span>
+        <span> {{item.price}} </span>
+        <span style="padding-right: 40px;"></span>
+        <img id="card-image" mat-card-image src="{{item.defaultImage}}" alt="product photo" style="width: 60px; height: 60px;"/>
+    </mat-list-item>
+    <mat-list-item>
+        <Span>Total</Span>
+        <span style="padding-right: 40px;"></span>
+        <Span>{{total}}</Span>
+    </mat-list-item>
+  </mat-list>
+  <button mat-flat-button color="primary" (click)="placeOrder()">Place Order</button>

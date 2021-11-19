@@ -1,0 +1,17 @@
+<mat-list>
+    <mat-list-item *ngFor="let item of cartItems; let i = index " style="width: 700px; border-style: solid; border-width: thin;padding-bottom: 10px;">
+      <span> {{item.name}} </span>
+      <span style="padding-right: 20px;"></span>
+        <span> {{item.price}} </span>
+        <span style="padding-right: 20px;"></span>
+        <a (click)="onRemove(item,i)"> <mat-icon >delete</mat-icon> </a>
+        
+    </mat-list-item>
+    <mat-list-item *ngIf="total !== 0">
+        <Span>Total</Span>
+        <span style="padding-right: 20px;"></span>
+        <Span>{{total}}</Span>
+    </mat-list-item>
+  </mat-list>
+  <button *ngIf="total !== 0" mat-flat-button color="primary" (click)="onCheckout()">Checkout</button>
+  <label>{{msg}}</label>

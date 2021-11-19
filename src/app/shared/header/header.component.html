@@ -1,0 +1,22 @@
+<mat-toolbar style="background-color:darkgray; color:black;">
+  <button mat-button [routerLink]="['/productList']" routerLinkActive="router-link-active" >
+    <span style="text-align: center;"> SMART HARDWARE SHOP</span>
+  </button> 
+   <span class="header-spacer"></span>
+<div [style]="{'text-align' : 'right'}">
+    <a id="idLogin" [routerLink]="['/login']"  routerLinkActive="active" *ngIf="!isSignIn && !isLoginComponent">Sign In</a>
+    <span style="padding-right: 10px;"></span>
+    <a id="idRegister" [routerLink]="['/productList']" routerLinkActive="active" *ngIf="isSignIn"  (click)="onLogout()">Sign Out</a>
+</div>
+<a [routerLink]="['/userCart']">
+    <mat-icon  matBadge={{itemCnt}} matBaitemCntdgeColor="warn" class="notification-button__icon">add_shopping_cart</mat-icon>
+</a>
+</mat-toolbar>
+
+<!--
+            <div [style]="{'text-align' : 'right'}">
+                <a id="idLogin" [routerLink]="['/login']"  routerLinkActive="active" *ngIf="!isSignIn && !isLoginComponent">Sign In</a>
+                <span style="padding-right: 10px;"></span>
+                <a id="idRegister" [routerLink]="['/productList']" routerLinkActive="active" *ngIf="isSignIn"  (click)="onLogout()">Sign Out</a>
+            </div>
+        -->
