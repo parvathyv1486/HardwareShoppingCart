@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
 
   productId : number;
   product : any = [];
+  public msg = '';
   constructor(
     private route: ActivatedRoute,
     private location: Location,
@@ -62,7 +63,7 @@ export class ProductComponent implements OnInit {
       localStorage.setItem('cart',JSON.stringify([cartProduct]));
 
     }
-    
+    this.msg = "Added to cart";
     this.dataService.notifyCartItemCount.emit();
 
   }

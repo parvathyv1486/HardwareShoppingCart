@@ -30,6 +30,7 @@ import { HomeComponent } from './shared/home/home.component';
 import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { OrdersuccessComponent } from './shared/ordersuccess/ordersuccess.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AddProductComponent,
     AllProductsComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    OrdersuccessComponent
     
   ],
   imports: [

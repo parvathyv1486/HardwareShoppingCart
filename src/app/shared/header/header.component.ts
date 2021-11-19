@@ -74,6 +74,9 @@ export class HeaderComponent implements OnInit {
       this.itemCnt = JSON.parse(localStorage.getItem('cart')).length;
     console.log('cartitems' + this.itemCnt)
     }
+    else{
+      this.itemCnt = 0;
+    }
   }
 
   onLogout(){
