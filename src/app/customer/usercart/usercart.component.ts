@@ -21,8 +21,13 @@ export class UsercartComponent implements OnInit {
   getCartItems(){
     this.total = 0;
    this.cartItems = JSON.parse(localStorage.getItem('cart'));
-   console.log(this.cartItems)
-   this.cartItems.forEach(a => this.total += a.price);
+   if(this.cartItems && this.cartItems.length > 0){
+    this.cartItems.forEach(a => this.total += a.price);
+    this.msg = '';
+   }
+   else{
+     this.msg = "Cart is empty";
+   }
 
   }
 

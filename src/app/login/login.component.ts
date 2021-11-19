@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { LoginService } from '../services/login.service';
 import {Router} from '@angular/router'; 
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 export class LoginComponent implements OnInit {
   public error;
   public form : FormGroup;
-  constructor(private loginService : LoginService,private route:Router) { }
+  constructor(private loginService : LoginService,private route:Router,private dataService : DataService) { }
   
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -28,13 +29,10 @@ export class LoginComponent implements OnInit {
         if(res && res.length > 0){
           console.log('sucess');
           localStorage.setItem('userDetails',JSON.stringify(res[0]));
-          if(res[0]['role'] == 'ADMIN'){
-            this.route.navigate(['/addProduct']);
-          }
-          else{
+          
           this.route.navigate(['/productList']);
-          }
-
+          
+          this.dataService.notifySignIn.emit();
         }
         else{
           this.error = "Not a valid user";
